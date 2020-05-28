@@ -13,7 +13,7 @@ pipeline {
              }
          }
       }
-      stage('upload the artifactory1'){
+      stage('upload the artifactory222222'){
             steps{
                 script{
                     sh """
