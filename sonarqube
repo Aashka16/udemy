@@ -33,7 +33,7 @@ pipeline {
                                 "files": [
                         {
                              "pattern": "webapp/target/*.war",
-                                "target": "sonartest"
+                                "target": "sonarqube"
                                }
                             ]  
                         }"""
