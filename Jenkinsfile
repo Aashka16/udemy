@@ -13,7 +13,7 @@ pipeline {
              }
          }
       }
-	  stage ('sonarq test) 
+	  stage ('sonarq test') 
 	    steps {
                 build job: 'project sonarqube_test'
 				}
