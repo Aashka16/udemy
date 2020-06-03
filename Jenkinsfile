@@ -14,7 +14,7 @@
              }
          }
       }
-	  stage ('sonarq test) {
+	  stage ('sonarq test') {
 	    steps {
                 build job: 'sonarqube_test'
 				}
