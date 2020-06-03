@@ -14,11 +14,7 @@
              }
          }
       }
-	  stage ('sonarq test') {
-	    steps {
-                build job: 'sonarqube_test'
-				}
-				}
+	  
       stage('upload the artifactory'){
             steps{
                 script{
