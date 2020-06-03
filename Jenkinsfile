@@ -16,7 +16,7 @@
       }
 	  stage ('sonarq test) {
 	    steps {
-                build job: 'project sonarqube_test'
+                build job: 'sonarqube_test'
 				}
 				}
       stage('upload the artifactory'){
@@ -45,6 +45,3 @@
             }
         }
     }
-
-
-
