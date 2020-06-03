@@ -13,15 +13,34 @@ pipeline {
              }
          }
       }
-	  
-	  stage('Code Quality') {
-                   steps {
-                       script {
-                          def scannerHome = tool 'sonar_scanner';
-                          withSonarQubeEnv("SonarQube_server") {
-                          sh "${tool("sonar_scanner")}/bin/sonar-scanner"
-                                       }
+	  stage ('sonarq test') {
+	    steps {
+                build job: 'sonarqube_test'
+				}
+				}
+      stage('upload the artifactory'){
+            steps{
+                script{
+                    sh """
+                    pwd
+                    """
+                        retry(3){
+                            
+                            rtUpload (
+                            serverId: "jfrog-server",
+                            spec:
+                                """{        
+                                "files": [
+                        {
+                             "pattern": "webapp/target/*.war",
+                                "target": "MyProject"
                                }
-                           }
-                        }
-	  
+                            ]  
+                        }"""
+                               )
+                       }
+                    }
+                }    
+            }
+        }
+    }
