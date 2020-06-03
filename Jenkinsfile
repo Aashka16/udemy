@@ -1,4 +1,5 @@
-pipeline {
+
+ pipeline {
    agent any
 
    stages {
@@ -13,9 +14,10 @@ pipeline {
              }
          }
       }
-	  stage ('sonarq test') 
+	  stage ('sonarq test) {
 	    steps {
                 build job: 'project sonarqube_test'
+				}
 				}
       stage('upload the artifactory'){
             steps{
